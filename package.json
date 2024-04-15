@@ -1,0 +1,27 @@
+{
+  "name": "a2z-dsa-tracker",
+  "version": "1.0.0",
+  "description": "��#\u0000A\u00002\u0000Z\u0000-\u0000D\u0000S\u0000A\u0000-\u0000T\u0000r\u0000a\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinayBhoure/A2Z-DSA-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinayBhoure/A2Z-DSA-Tracker/issues"
+  },
+  "homepage": "https://github.com/vinayBhoure/A2Z-DSA-Tracker#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1",
+    "nodemon": "^3.1.0"
+  }
+}

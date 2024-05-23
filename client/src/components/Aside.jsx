@@ -8,36 +8,35 @@ import { useUserContext } from "../context/context";
 
 export default function Aside() {
   const { authUser } = useUserContext();
-  const {showMenu} = useUserContext();
+  const { showMenu } = useUserContext();
   const varShowMenu = showMenu ? "block" : "hidden";
 
   const [currWindow, setCurrWindow] = useState("/");
-  console.log(currWindow)
   const focusCSS = "bg-blue-300 rounded-lg shadow-inner";
   const hoverCSS = "hover:bg-blue-100 hover:rounded-lg hover:shadow-inner";
 
-  function changeHandler(){
-    setCurrWindow(window.location.pathname);
-  }
-  useEffect(changeHandler, [window.location])
   return (
     <div
       className={`absolute sm:static h-full md:min-w-52 lg:min-w-60 ${varShowMenu} lg:block bg-[#E8F1FD] text-[#4F4F4F] text-md py-6 px-6 font-semibold`}
     >
       <div className="px-3 py-4 hover:cursor-default">Main menu</div>
       <ul className="flex flex-col gap-2">
-        <Link to="/" className={`${currWindow === "/" ? focusCSS : hoverCSS}`} onClick={changeHandler}>
+        <Link
+          to="/"
+          className={`${currWindow === "/" ? focusCSS : hoverCSS}`}
+          onClick={() => setCurrWindow("/")}
+        >
           <li className="p-2 flex items-center gap-1 hover:text-[#0B6DE0] ">
             <AiFillHome />
             Home
           </li>
         </Link>
-        { (
+        {
           <>
             <Link
-              to={authUser ? "/dashboard" : "/login" }
+              to={authUser ? "/dashboard" : "/login"}
               className={`${currWindow === "/dashboard" ? focusCSS : hoverCSS}`}
-              onClick={changeHandler}
+              onClick={() => setCurrWindow("/dashboard")}
             >
               <li className="p-2 flex items-center gap-1 hover:text-[#0B6DE0]">
                 <CgProfile />
@@ -45,9 +44,9 @@ export default function Aside() {
               </li>
             </Link>
             <Link
-              to={authUser ? "/problems" : "/login" }
+              to={authUser ? "/problems" : "/login"}
               className={`${currWindow === "/problems" ? focusCSS : hoverCSS}`}
-              onClick={changeHandler}
+              onClick={() => setCurrWindow("/problems")}
             >
               <li className="p-2 flex items-center gap-1 hover:text-[#0B6DE0]">
                 <TbMathSymbols />
@@ -55,7 +54,7 @@ export default function Aside() {
               </li>
             </Link>
           </>
-        )}
+        }
       </ul>
       {!authUser ? (
         <div className="flex flex-col gap-2 md:hidden mt-4">

@@ -24,7 +24,6 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/verify" element={<OTPverification />} />
           <Route path="/userinfo/collage" element={<UserInfoCollege />} />
-
         </Routes>
       </div>
     </div>
